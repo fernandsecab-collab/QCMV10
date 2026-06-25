@@ -1,0 +1,44 @@
+{
+  "name": "qcm-manager-edf-secab-v63-actualisee",
+  "version": "63.5.0",
+  "description": "QCM Manager EDF SECAB V63.5 - Banque QCM complète corrigée",
+  "main": "main.js",
+  "author": "SECAB",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis --x64 --publish never",
+    "pack": "electron-builder --dir",
+    "build": "npm run dist"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "fr.secab.qcm-manager",
+    "productName": "QCM Manager EDF SECAB",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*",
+      "build/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "QCM Manager EDF SECAB"
+    },
+    "publish": null
+  }
+}
